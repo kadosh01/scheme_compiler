@@ -26,8 +26,8 @@ let nt_natural =
 let nt_boolean = 
   let char_to_bool ch =
     if (ch = 't') then true
-    else false 
-    and let _bool_t ch =
+    else false in 
+      let _bool_t ch =
       let _hash = char '#' in 
       let  _bool = char ch in 
       let _parse = caten (caten (caten _spaces_ _hash) _bool ) _spaces_ in
@@ -36,7 +36,7 @@ let nt_boolean =
 
 let nt_charPrefix = 
   let _hash = char '#' in 
-  let _char = char '\' in
-  let _parse = caten (caten _spaces _hash) _char in 
-  pack _parse ()
+  let _char = char '\\' in
+    let _parse = caten (caten _spaces_ _hash) _char in 
+    pack _parse (fun ((l,h),b) -> (h,b));;
 
